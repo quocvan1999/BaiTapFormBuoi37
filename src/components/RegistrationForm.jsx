@@ -8,7 +8,7 @@ const RegistrationForm = () => {
       username: "",
       email: "",
       gender: "",
-      country: "USA",
+      country: "usa",
       password: "",
     },
     validationSchema: yup.object().shape({
@@ -17,7 +17,7 @@ const RegistrationForm = () => {
         .string()
         .required("Email không được để trống")
         .email("Email không đúng định dạng"),
-      gender: yup.boolean().required("Gender không được để trống"),
+      gender: yup.string().required("Gender không được để trống"),
       password: yup
         .string()
         .required("Password không được để trống")
@@ -29,7 +29,7 @@ const RegistrationForm = () => {
   });
   return (
     <form
-      className="w-[400px] px-3 py-5 rounded-lg shadow-2xl"
+      className="w-[400px] px-5 py-8 rounded-lg shadow-2xl"
       onSubmit={formRegistration.handleSubmit}
     >
       <h1 className="font-bold text-2xl text-center mb-4">User Registration</h1>
@@ -78,7 +78,7 @@ const RegistrationForm = () => {
             type="radio"
             name="gender"
             id="male"
-            value="true"
+            value="male"
             onChange={formRegistration.handleChange}
           />
           <label htmlFor="male" className="ml-2">
@@ -90,7 +90,7 @@ const RegistrationForm = () => {
             type="radio"
             name="gender"
             id="female"
-            value="false"
+            value="female"
             onChange={formRegistration.handleChange}
           />
           <label htmlFor="female" className="ml-2">
